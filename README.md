@@ -1,10 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Built the demo with NextJS + Mantine UI + Tailwind CSS 
 
 ## Getting Started
 
-First, run the development server:
+firstly, clone the code from Github repository:
 
 ```bash
+# Step 1:
+
+git clone https://github.com/officialrajdeepsingh/mantine-ui-nextjs.git
+
+# Step 2:
+
+cd mantine-ui-nextjs
+
+# Step 3:
+
+pnpm install
+
+# Step 4:
+
 npm run dev
 # or
 yarn dev
