@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { createStyles, Header, Group, ActionIcon, Container, Burger, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconBrandTwitter, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react';
+import { IconBrandTwitter, IconBrandLinkedin, IconBrandGithub, IconSun, IconMoonStars } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
 import { useMantineColorScheme } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons-react';
 import Link from 'next/link';
-import { SearchBar } from "@/components/Search/Search"
+import { SearchBar } from "@/components/Search/Search";
+import { Menu, Button, Text } from '@mantine/core';
+import { IconSettings, IconSearch, IconPhoto, IconMessageCircle, IconTrash, IconArrowsLeftRight } from '@tabler/icons-react';
+
 const useStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
@@ -18,7 +20,9 @@ const useStyles = createStyles((theme) => ({
       justifyContent: 'flex-start',
     },
   },
-
+  toggle: {
+    display: "flex",
+  },
   links: {
     width: rem(260),
 
@@ -72,13 +76,12 @@ interface HeaderMiddleProps {
 }
 
 export function HeaderMenu({ links }: HeaderMiddleProps) {
+
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
-
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
-
 
   const items = links.map((link) => (
     <Link
@@ -90,10 +93,26 @@ export function HeaderMenu({ links }: HeaderMiddleProps) {
     </Link>
   ));
 
+  const mobileMenu = links.map((link) => (<Menu.Item key={link.label}> <Link
+    href={link.link}
+    className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+  >
+    {link.label}
+  </Link></Menu.Item>))
   return (
     <Header height={56} mb={120}>
       <Container className={classes.inner}>
-        <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
+
+        <Menu trigger={"hover"} shadow="md" width={200}>
+          <Menu.Target  >
+            <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
+          </Menu.Target>
+
+          <Menu.Dropdown>
+            {mobileMenu}
+          </Menu.Dropdown>
+        </Menu>
+
         <Link href={"/"}>
           <MantineLogo size={28} />
         </Link>
@@ -104,21 +123,25 @@ export function HeaderMenu({ links }: HeaderMiddleProps) {
           </Group>
 
           <Group spacing={0} className={classes.social} position="center" noWrap>
+
             <Link target='_blank' href="https://twitter.com/Official_R_deep">
               <ActionIcon size="lg">
                 <IconBrandTwitter size="1.1rem" stroke={1.5} />
               </ActionIcon>
             </Link>
+
             <Link target='_blank' href="https://www.linkedin.com/in/officalrajdeepsingh/">
               <ActionIcon size="lg">
                 <IconBrandLinkedin size="1.1rem" stroke={1.5} />
               </ActionIcon>
             </Link>
+
             <Link target='_blank' href="http://github.com/officialrajdeepsingh">
               <ActionIcon size="lg">
                 <IconBrandGithub size="1.1rem" stroke={1.5} />
               </ActionIcon>
             </Link>
+
             <SearchBar />
 
             <ActionIcon
