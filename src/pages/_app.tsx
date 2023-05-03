@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+import { useLocalStorage } from '@mantine/hooks';
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { HeaderMenu } from '@/components/Header/Header';
 
