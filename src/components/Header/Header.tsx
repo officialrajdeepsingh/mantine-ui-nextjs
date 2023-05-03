@@ -4,10 +4,10 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconBrandTwitter, IconBrandLinkedin, IconBrandGithub, IconSun, IconMoonStars } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
 import { useMantineColorScheme } from '@mantine/core';
-import Link from 'next/link';
+import Link from 'next/link';  
 import { SearchBar } from "@/components/Search/Search";
-import { Menu, Button, Text } from '@mantine/core';
-import { IconSettings, IconSearch, IconPhoto, IconMessageCircle, IconTrash, IconArrowsLeftRight } from '@tabler/icons-react';
+import { Menu } from '@mantine/core';
+
 
 const useStyles = createStyles((theme) => ({
   inner: {
