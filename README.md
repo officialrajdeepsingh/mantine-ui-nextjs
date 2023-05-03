@@ -26,4 +26,4 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. [Read the full article](https://medium.com/frontendweb/how-to-use-the-mantine-library-with-the-nextjs-13-ecd4c5f961a4)
